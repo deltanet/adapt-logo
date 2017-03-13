@@ -1,0 +1,86 @@
+{
+  "type":"object",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "id": "http://jsonschema.net",
+  "required":false,
+  "properties":{
+    "pluginLocations": {
+      "type": "object",
+      "required":true,
+      "properties": {
+        "config": {
+          "type":"object"
+        },
+        "course": {
+          "type":"object",
+          "properties":{
+            "_logo": {
+              "type":"object",
+              "required":false,
+              "legend": "Logo",
+              "properties":{
+                "_isEnabled": {
+                  "type":"boolean",
+                  "required":true,
+                  "default": false,
+                  "title": "Is Enabled",
+                  "inputType": { "type": "Boolean", "options": [false, true]},
+                  "validators": [],
+                  "help": "Turns Logo on and off. Acceptable values are true and false."
+                },
+                "_large": {
+                  "type": "string",
+                  "required": false,
+                  "default": "",
+                  "title": "Large Graphic",
+                  "inputType": "Asset:image",
+                  "validators": [],
+                  "help": "Select a graphic to be used for desktop size."
+                },
+                "_medium": {
+                  "type": "string",
+                  "required": false,
+                  "default": "",
+                  "title": "Medium Graphic",
+                  "inputType": "Asset:image",
+                  "validators": [],
+                  "help": "Select a graphic to be used for tablet devices."
+                },
+                "_small": {
+                  "type": "string",
+                  "required": false,
+                  "default": "",
+                  "title": "Small Graphic",
+                  "inputType": "Asset:image",
+                  "validators": [],
+                  "help": "Select a graphic to be used for mobile devices."
+                },
+                "_position": {
+                  "type":"string",
+                  "required": true,
+                  "default": "center",
+                  "title": "CSS Position Property",
+                  "inputType": {"type": "Select", "options": ["center", "left", "right"]},
+                  "validators": [],
+                  "help": "Set the position of the graphic with the pre-defined CSS styles."
+                }
+              }
+            }
+          }
+        },
+        "contentobject": {
+          "type":"object"
+        },
+        "article": {
+          "type":"object"
+        },
+        "block": {
+          "type":"object"
+        },
+        "component": {
+          "type":"object"
+        }
+      }
+    }
+  }
+}
