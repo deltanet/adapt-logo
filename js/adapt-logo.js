@@ -1,48 +1,41 @@
 define([
-  'coreJS/adapt'
-], function(Adapt) {
+    'coreJS/adapt',
+    './adapt-logo-view'
+], function(Adapt, LogoView) {
 
-	var LogoView = Backbone.View.extend({
+  var Logo = _.extend({
 
-		initialize: function() {
-      this.listenTo(Adapt, 'device:changed', this.render);
-			this.render();
-		},
+    initialize: function() {
+        this.listenToOnce(Adapt, "app:dataReady", this.onDataReady);
+    },
 
-    render: function () {
-      // Check device size
-      var deviceSize = Adapt.device.screenSize;
-      switch (deviceSize) {
-      case "small":
-        this.image = 'url('+Adapt.course.get('_logo')._small+')';
-        break;
-      case "medium":
-        this.image = 'url('+Adapt.course.get('_logo')._medium+')';
-        break;
-      default:
-        // If "large"
-        this.image = 'url('+Adapt.course.get('_logo')._large+')';
+    onDataReady: function() {
+      this.setupEventListeners();
+      this.setupAudio();
+    },
+
+    setupEventListeners: function() {
+      this.listenTo(Adapt, "router:page router:menu", this.onAddToggle);
+    },
+
+    setupAudio: function() {
+      if (Adapt.course.get("_logo") && Adapt.course.get("_logo")._isEnabled) {
+        this.logoEnabled = Adapt.course.get("_logo")._isEnabled;
+      } else {
+        this.logoEnabled = false;
       }
+    },
 
-      $(".navigation-inner").css({
-        "background-image": this.image,
-        "background-position": Adapt.course.get('_logo')._position,
-        "background-repeat": "no-repeat"
-      });
-
+    onAddToggle: function(pageModel) {
+      if (this.logoEnabled) {
+          new LogoView({model:pageModel});
+      }
     }
 
-	});
+  }, Backbone.Events);
 
-	Adapt.once("adapt:initialize", function() {
-		var config = Adapt.course.get("_logo");
+    Logo.initialize();
 
-		if (!config) return;
+    return Logo;
 
-		if (config._isEnabled) {
-			new LogoView({ model: new Backbone.Model(config) });
-		}
-
-	});
-
-});
+})

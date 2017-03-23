@@ -1,0 +1,55 @@
+.logo {
+
+  .course-title {
+    padding: @navigation-padding / 2;
+    color: @primary-color-inverted;
+
+    font-size: @sub-title-font-size;
+    font-weight: @sub-title-font-weight;
+    line-height: @navigation-padding + @icon-size;
+
+    margin-left: @navigation-padding;
+    margin-right: @navigation-padding;
+
+    float: left;
+    .dir-rtl & {
+      float: right;
+    }
+  }
+
+  .course-logo {
+    padding: @navigation-padding / 2;
+    float: left;
+    .dir-rtl & {
+      float: right;
+    }
+    img {
+      height: @navigation-padding + @icon-size;
+    }
+  }
+
+  &.center {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    z-index: -1;
+    .logo-inner {
+      display: inline-block;
+    }
+  }
+
+  &.left {
+    float: left;
+    .dir-rtl & {
+      float: right;
+    }
+  }
+
+  &.right {
+    float: right;
+    .dir-rtl & {
+      float: left;
+    }
+  }
+
+}

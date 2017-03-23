@@ -28,41 +28,101 @@
                   "validators": [],
                   "help": "Turns Logo on and off. Acceptable values are true and false."
                 },
-                "_large": {
-                  "type": "string",
-                  "required": false,
-                  "default": "",
-                  "title": "Large Graphic",
-                  "inputType": "Asset:image",
-                  "validators": [],
-                  "help": "Select a graphic to be used for desktop size."
-                },
-                "_medium": {
-                  "type": "string",
-                  "required": false,
-                  "default": "",
-                  "title": "Medium Graphic",
-                  "inputType": "Asset:image",
-                  "validators": [],
-                  "help": "Select a graphic to be used for tablet devices."
-                },
-                "_small": {
-                  "type": "string",
-                  "required": false,
-                  "default": "",
-                  "title": "Small Graphic",
-                  "inputType": "Asset:image",
-                  "validators": [],
-                  "help": "Select a graphic to be used for mobile devices."
-                },
                 "_position": {
                   "type":"string",
                   "required": true,
                   "default": "center",
-                  "title": "CSS Position Property",
-                  "inputType": {"type": "Select", "options": ["center", "left", "right"]},
+                  "title": "Position",
+                  "inputType": {"type": "Select", "options": ["left", "center", "right"]},
                   "validators": [],
-                  "help": "Set the position of the graphic with the pre-defined CSS styles."
+                  "help": "Set the position of the graphic and/or title."
+                },
+                "_graphic": {
+                  "type":"object",
+                  "required":false,
+                  "title": "Graphic",
+                  "properties":{
+                    "_isEnabled": {
+                      "type":"boolean",
+                      "required":true,
+                      "default": false,
+                      "title": "Is Enabled",
+                      "inputType": { "type": "Boolean", "options": [false, true]},
+                      "validators": []
+                    },
+                    "_large": {
+                      "type":"string",
+                      "required":false,
+                      "default": "",
+                      "title": "Large Image",
+                      "inputType": "Asset:image",
+                      "validators": [],
+                      "help": "Image to display on desktop displays."
+                    },
+                    "_medium": {
+                      "type":"string",
+                      "required":false,
+                      "default": "",
+                      "title": "Medium Image",
+                      "inputType": "Asset:image",
+                      "validators": [],
+                      "help": "Image to display on tablet devices."
+                    },
+                    "_small": {
+                      "type":"string",
+                      "required":false,
+                      "default": "",
+                      "title": "Small Image",
+                      "inputType": "Asset:image",
+                      "validators": [],
+                      "help": "Image to display on mobile devices."
+                    }
+                  }
+                },
+                "_title": {
+                  "type":"object",
+                  "required":false,
+                  "title": "Title",
+                  "properties":{
+                    "_isEnabled": {
+                      "type":"boolean",
+                      "required":true,
+                      "default": false,
+                      "title": "Is Enabled",
+                      "inputType": { "type": "Boolean", "options": [false, true]},
+                      "validators": []
+                    },
+                    "large": {
+                      "type":"string",
+                      "required":false,
+                      "default": "",
+                      "title": "Large Title",
+                      "inputType": "Text",
+                      "validators": [],
+                      "help": "Text for the title on desktop displays.",
+                      "translatable": true
+                    },
+                    "medium": {
+                      "type":"string",
+                      "required":false,
+                      "default": "",
+                      "title": "Medium Title",
+                      "inputType": "Text",
+                      "validators": [],
+                      "help": "Text for the title on tablet devices.",
+                      "translatable": true
+                    },
+                    "small": {
+                      "type":"string",
+                      "required":false,
+                      "default": "",
+                      "title": "Small Title",
+                      "inputType": "Text",
+                      "validators": [],
+                      "help": "Text for the title on mobile devices.",
+                      "translatable": true
+                    }
+                  }
                 }
               }
             }

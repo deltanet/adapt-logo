@@ -1,8 +1,17 @@
 // To go on course json
 "_logo": {
   "_isEnabled": true,
-  "_position": "center",
-  "_large": "",
-  "_medium": "",
-  "_small": ""
+  "_position": "center", // options are "left" "center" "right"
+  "_graphic": {
+      "_isEnabled": true,
+      "_large": "",
+      "_medium": "",
+      "_small": ""
+  },
+  "_title": {
+      "_isEnabled": true,
+      "large": "",
+      "medium": "",
+      "small": ""
+  }
 }
