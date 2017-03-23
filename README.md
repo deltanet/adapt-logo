@@ -1,7 +1,7 @@
 adapt-logo
 ===============
 
-An extension to add an image into the background of the navigation bar.
+An extension to add an image and/or a title into the navigation bar.
 
 ----------------------------
 **Version number:**  2.0.0    

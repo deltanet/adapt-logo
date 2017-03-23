@@ -5,7 +5,7 @@
 	"homepage": "https://github.com/deltanet/adapt-logo",
 	"displayName": "Logo",
 	"extension": "logo",
-	"description": "An extension to add a logo to the navigation bar",
+	"description": "An extension to add an image and/or a title into the navigation bar.",
 	"main": "/js/adapt-logo.js",
 	"keywords": [
 		"adapt-plugin",
