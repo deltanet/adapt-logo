@@ -11,14 +11,14 @@ define([
 
     onDataReady: function() {
       this.setupEventListeners();
-      this.setupAudio();
+      this.setupLogo();
     },
 
     setupEventListeners: function() {
-      this.listenTo(Adapt, "router:page router:menu", this.onAddToggle);
+      this.listenTo(Adapt, "router:page router:menu", this.onAddLogo);
     },
 
-    setupAudio: function() {
+    setupLogo: function() {
       if (Adapt.course.get("_logo") && Adapt.course.get("_logo")._isEnabled) {
         this.logoEnabled = Adapt.course.get("_logo")._isEnabled;
       } else {
@@ -26,7 +26,7 @@ define([
       }
     },
 
-    onAddToggle: function(pageModel) {
+    onAddLogo: function(pageModel) {
       if (this.logoEnabled) {
           new LogoView({model:pageModel});
       }

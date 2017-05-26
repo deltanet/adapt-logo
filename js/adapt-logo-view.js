@@ -13,19 +13,15 @@ define(function(require) {
             this.render();
         },
 
-        events: {
-            "click .audio-nav-toggle":"toggleAudio"
-        },
-
         render: function() {
             var data = this.model.toJSON();
             var template = Handlebars.templates["logo"];
 
             // Check position
             if(Adapt.course.get('_logo')._position == "left" || Adapt.course.get('_logo')._position == "right") {
-              this.$el.html(template(data)).prependTo('#wrapper'+'>.navigation'+'>.navigation-inner');
+              this.$el.html(template(data)).prependTo('.navigation'+'>.navigation-inner');
             } else {
-              this.$el.html(template(data)).appendTo('#wrapper'+'>.navigation'+'>.navigation-inner');
+              this.$el.html(template(data)).appendTo('.navigation'+'>.navigation-inner');
             }
 
             this.image = "";
