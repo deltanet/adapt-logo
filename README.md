@@ -22,21 +22,21 @@ The Logo attribute group contains values for **_isEnabled**, **_position**, **_g
 
 >**_isEnabled** (boolean):  Turns on and off the **Logo** extension. Can be set to disable **Logo** when not required.
 
->**_position** (string):  Defines the location of the Logo elements within the top navigation bar. It contains preset values for **left**, **center**, and **right**. 
+>**_position** (string):  Defines the location of the Logo elements within the top navigation bar. It contains preset values for **left**, **center**, and **right**.
 
 >**_graphic** (object): This `_graphic` attributes group stores the properties for the image/logo. It contains values for **_isEnabled**, **_large**, **_medium**, and **_small**.  
 
->>**_isEnabled** (boolean):  If set to `true`, the specified asset will be added as a logo. 
+>>**_isEnabled** (boolean):  If set to `true`, the specified asset will be added as a logo.
 
 >>**_large** (string): File name (including path) of the image for the logo on a large sized device. Path should be relative to the *src* folder.  
 
->>**_medium** (string): File name (including path) of the image for the logo on a medium sized device. Path should be relative to the *src* folder. 
+>>**_medium** (string): File name (including path) of the image for the logo on a medium sized device. Path should be relative to the *src* folder.
 
->>**_small** (string): File name (including path) of the image for the logo on a small sized device. Path should be relative to the *src* folder. 
+>>**_small** (string): File name (including path) of the image for the logo on a small sized device. Path should be relative to the *src* folder.
 
 >**_title** (object): This `_title` attributes group stores the properties for the title added to the navigation bar. It contains values for **_isEnabled**, **large**, **medium**, and **small**.  
 
->>**_isEnabled** (boolean):  If set to `true`, the specified text will be added as a title. 
+>>**_isEnabled** (boolean):  If set to `true`, the specified text will be added as a title.
 
 >>**large** (string): Defines the title on a large sized device.  
 
@@ -45,11 +45,11 @@ The Logo attribute group contains values for **_isEnabled**, **_position**, **_g
 >>**small** (string): Defines the title on a small sized device.  
 
 ## Limitations
- 
-No known limitations. 
+
+No known limitations.
 
 ----------------------------
-**Version number:**  2.0.0    
+**Version number:**  2.0.1    
 **Framework versions supported:**  2.0.4    
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-logo/graphs/contributors)     
 **Accessibility support:** Yes  
