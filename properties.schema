@@ -21,12 +21,12 @@
               "properties":{
                 "_isEnabled": {
                   "type":"boolean",
-                  "required":true,
+                  "required": true,
                   "default": false,
                   "title": "Is Enabled",
-                  "inputType": { "type": "Boolean", "options": [false, true]},
+                  "inputType": "Checkbox",
                   "validators": [],
-                  "help": "Turns Logo on and off. Acceptable values are true and false."
+                  "help": "Controls whether the Logo extension is enabled or disabled."
                 },
                 "_position": {
                   "type":"string",
@@ -39,20 +39,20 @@
                 },
                 "_graphic": {
                   "type":"object",
-                  "required":false,
+                  "required": false,
                   "title": "Graphic",
                   "properties":{
                     "_isEnabled": {
                       "type":"boolean",
-                      "required":true,
+                      "required": true,
                       "default": false,
                       "title": "Is Enabled",
-                      "inputType": { "type": "Boolean", "options": [false, true]},
+                      "inputType": "Checkbox",
                       "validators": []
                     },
                     "_large": {
                       "type":"string",
-                      "required":false,
+                      "required": false,
                       "default": "",
                       "title": "Large Image",
                       "inputType": "Asset:image",
@@ -61,7 +61,7 @@
                     },
                     "_medium": {
                       "type":"string",
-                      "required":false,
+                      "required": false,
                       "default": "",
                       "title": "Medium Image",
                       "inputType": "Asset:image",
@@ -70,7 +70,7 @@
                     },
                     "_small": {
                       "type":"string",
-                      "required":false,
+                      "required": false,
                       "default": "",
                       "title": "Small Image",
                       "inputType": "Asset:image",
@@ -86,15 +86,15 @@
                   "properties":{
                     "_isEnabled": {
                       "type":"boolean",
-                      "required":true,
+                      "required": true,
                       "default": false,
                       "title": "Is Enabled",
-                      "inputType": { "type": "Boolean", "options": [false, true]},
+                      "inputType": "Checkbox",
                       "validators": []
                     },
                     "large": {
                       "type":"string",
-                      "required":false,
+                      "required": false,
                       "default": "",
                       "title": "Large Title",
                       "inputType": "Text",
@@ -104,7 +104,7 @@
                     },
                     "medium": {
                       "type":"string",
-                      "required":false,
+                      "required": false,
                       "default": "",
                       "title": "Medium Title",
                       "inputType": "Text",
@@ -114,7 +114,7 @@
                     },
                     "small": {
                       "type":"string",
-                      "required":false,
+                      "required": false,
                       "default": "",
                       "title": "Small Title",
                       "inputType": "Text",
