@@ -26,6 +26,8 @@ define(function(require) {
 
             this.image = "";
             this.title = "";
+            this.linkUrl = "";
+            this.linkTitle = "";
 
             this.setupLogo();
 
@@ -36,6 +38,8 @@ define(function(require) {
           this.deviceSize = Adapt.device.screenSize;
           this.image = "";
           this.title = "";
+          this.linkUrl = "";
+          this.linkTitle = "";
           // Add image if enabled
           if(Adapt.course.get('_logo')._graphic._isEnabled) {
             // Check device size
@@ -69,6 +73,23 @@ define(function(require) {
             }
             // Add title
             this.$('.course-title').html(this.title);
+          }
+          // Add link if is enabled
+          if(Adapt.course.get('_logo')._link._isEnabled) {
+            this.linkUrl = Adapt.course.get('_logo')._link._url;
+            this.linkTitle = Adapt.course.get('_logo')._link.title;
+
+            // Add href and title
+            this.$('a').attr('href', this.linkUrl);
+            this.$('a').attr('title', this.linkTitle);
+          } else {
+            this.$('a').on('mouseover', function (event) {
+              $(this).css("cursor", "default");
+            });
+
+            this.$('a').on("click", function (event) {
+              event.preventDefault();
+            });
           }
 
           // Add class to logo

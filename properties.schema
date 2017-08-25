@@ -123,6 +123,41 @@
                       "translatable": true
                     }
                   }
+                },
+                "_link": {
+                  "type":"object",
+                  "required":false,
+                  "title": "Link",
+                  "properties":{
+                    "_isEnabled": {
+                      "type":"boolean",
+                      "required": true,
+                      "default": false,
+                      "title": "Is Enabled",
+                      "inputType": "Checkbox",
+                      "validators": []
+                    },
+                    "_url": {
+                      "type":"string",
+                      "required": false,
+                      "default": "",
+                      "title": "URL",
+                      "inputType": "Text",
+                      "validators": [],
+                      "help": "link url for href",
+                      "translatable": true
+                    },
+                    "title": {
+                      "type":"string",
+                      "required": false,
+                      "default": "",
+                      "title": "title",
+                      "inputType": "Text",
+                      "validators": [],
+                      "help": "link title",
+                      "translatable": true
+                    }
+                  }
                 }
               }
             }
