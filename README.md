@@ -49,7 +49,7 @@ The Logo attribute group contains values for **_isEnabled**, **_position**, **_g
 No known limitations.
 
 ----------------------------
-**Version number:**  2.0.1    
+**Version number:**  2.0.2    
 **Framework versions supported:**  2.0.4    
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-logo/graphs/contributors)     
 **Accessibility support:** Yes  
