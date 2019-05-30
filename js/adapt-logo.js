@@ -1,41 +1,52 @@
 define([
-    'coreJS/adapt',
-    './adapt-logo-view'
+    'core/js/adapt',
+    './logoView'
 ], function(Adapt, LogoView) {
 
-  var Logo = _.extend({
+    var Logo = _.extend({
 
-    initialize: function() {
-        this.listenToOnce(Adapt, "app:dataReady", this.onDataReady);
-    },
+        initialize: function() {
+            this.listenToOnce(Adapt, 'app:dataReady', this.onAppDataReady);
+        },
 
-    onDataReady: function() {
-      this.setupEventListeners();
-      this.setupLogo();
-    },
+        onAppDataReady: function() {
+            this.listenTo(Adapt.config, 'change:_activeLanguage', this.onLangChange);
 
-    setupEventListeners: function() {
-      this.listenTo(Adapt, "router:page router:menu", this.onAddLogo);
-    },
+            if (!Adapt.course.get('_logo')) return;
 
-    setupLogo: function() {
-      if (Adapt.course.get("_logo") && Adapt.course.get("_logo")._isEnabled) {
-        this.logoEnabled = Adapt.course.get("_logo")._isEnabled;
-      } else {
-        this.logoEnabled = false;
-      }
-    },
+            if (Adapt.course.get('_logo')._isEnabled) {
+                this.setupLogo();
+                this.setupListeners();
+            }
+        },
 
-    onAddLogo: function(pageModel) {
-      if (this.logoEnabled) {
-          new LogoView({model:pageModel});
-      }
-    }
+        onLangChange: function() {
+            this.removeListeners();
+            this.listenToOnce(Adapt, 'app:dataReady', this.onAppDataReady);
+        },
 
-  }, Backbone.Events);
+        setupLogo: function() {
+            this.config = Adapt.course.get('_logo');
+            this.model = new Backbone.Model(this.config);
+        },
+
+        setupListeners: function() {
+            this.listenTo(Adapt, 'navigationView:postRender', this.renderLogoView);
+        },
+
+        removeListeners: function() {
+            this.stopListening(Adapt, 'navigationView:postRender', this.renderLogoView);
+            this.stopListening(Adapt.config, 'change:_activeLanguage', this.onLangChange);
+        },
+
+        renderLogoView: function() {
+            new LogoView({model: this.model});
+        }
+
+    }, Backbone.Events);
 
     Logo.initialize();
 
     return Logo;
 
-})
+});

@@ -1,8 +1,9 @@
 {
 	"name": "adapt-logo",
-	"version": "2.0.3",
-	"framework": "^2.0.6",
+	"version": "2.1.0",
+	"framework": ">=2",
 	"homepage": "https://github.com/deltanet/adapt-logo",
+	"issues": "https://github.com/deltanet/adapt-logo/issues",
 	"displayName": "Logo",
 	"extension": "logo",
 	"description": "An extension to add an image and/or a title into the navigation bar.",
@@ -11,6 +12,6 @@
 		"adapt-plugin",
 		"adapt-extension"
 	],
-	"license": "GPL-3.0",
+	"license": "GPLv3",
 	"targetAttribute": "_logo"
 }

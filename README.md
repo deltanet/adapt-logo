@@ -44,13 +44,9 @@ The Logo attribute group contains values for **_isEnabled**, **_position**, **_g
 
 >>**small** (string): Defines the title on a small sized device.  
 
-## Limitations
-
-No known limitations.
-
 ----------------------------
-**Version number:**  2.0.3    
-**Framework versions supported:**  2.0.4    
+**Version number:**  2.1.0    
+**Framework versions supported:**  2+    
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-logo/graphs/contributors)     
 **Accessibility support:** Yes  
 **RTL support:** Yes  
