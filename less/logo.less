@@ -1,5 +1,11 @@
 .logo {
 
+  .logo-button {
+    &.inactive {
+      cursor: default;
+    }
+  }
+
   .course-title {
     padding: @navigation-padding / 2;
     color: @tertiary-color-inverted;
@@ -29,11 +35,15 @@
   }
 
   &.center {
-    width: 100%;
     text-align: center;
     position: absolute;
     top: 0;
-    z-index: -1;
+
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+
     .logo-inner {
       display: inline-block;
     }
@@ -52,5 +62,4 @@
       float: left;
     }
   }
-
 }

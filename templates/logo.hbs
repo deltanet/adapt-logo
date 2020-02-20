@@ -1,6 +1,15 @@
 <div class="logo-inner">
+  {{#if _link._isEnabled}}
+  <button class="base logo-button">
+    <div class="course-logo">
+      <img src="" class="a11y-ignore" aria-hidden="true"/>
+    </div>
+    <div class="course-title"></div>
+  </button>
+  {{else}}
   <div class="course-logo">
     <img src="" class="a11y-ignore" aria-hidden="true"/>
   </div>
   <div class="course-title"></div>
+  {{/if}}
 </div>

@@ -40,7 +40,7 @@
                 "_graphic": {
                   "type":"object",
                   "required": false,
-                  "title": "Graphic",
+                  "legend": "Graphic",
                   "properties":{
                     "_isEnabled": {
                       "type":"boolean",
@@ -82,7 +82,7 @@
                 "_title": {
                   "type":"object",
                   "required":false,
-                  "title": "Title",
+                  "legend": "Title",
                   "properties":{
                     "_isEnabled": {
                       "type":"boolean",
@@ -121,6 +121,29 @@
                       "validators": [],
                       "help": "Text for the title on mobile devices.",
                       "translatable": true
+                    }
+                  }
+                },
+                "_link": {
+                  "type": "object",
+                  "required": false,
+                  "legend": "Link",
+                  "properties":{
+                    "_isEnabled": {
+                      "type": "boolean",
+                      "required": true,
+                      "default": false,
+                      "title": "Is Enabled",
+                      "inputType": "Checkbox",
+                      "validators": []
+                    },
+                    "_parentPage": {
+                      "type": "boolean",
+                      "required": true,
+                      "default": true,
+                      "title": "Link To Parent Page",
+                      "inputType": "Checkbox",
+                      "validators": []
                     }
                   }
                 }

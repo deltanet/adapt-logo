@@ -6,6 +6,10 @@ define([
 
         className: 'logo',
 
+        events: {
+            'click .logo-button': 'onClick'
+        },
+
         initialize: function() {
             this.listenTo(Adapt.config, 'change:_activeLanguage', this.remove);
             this.listenTo(Adapt, 'device:changed', this.setupLogo);
@@ -17,7 +21,7 @@ define([
             var template = Handlebars.templates['logo'];
 
             // Check position
-            if (Adapt.course.get('_logo')._position == "left" || Adapt.course.get('_logo')._position == "right") {
+            if (this.model.get('_position') == "left" || this.model.get('_position') == "right") {
                 this.$el.html(template(data)).prependTo('.navigation'+'>.navigation-inner');
             } else {
                 this.$el.html(template(data)).appendTo('.navigation'+'>.navigation-inner');
@@ -35,42 +39,42 @@ define([
             this.title = "";
 
             // Add image if enabled
-            if (Adapt.course.get('_logo')._graphic._isEnabled) {
+            if (this.model.get('_graphic')._isEnabled) {
               // Check device size
               switch (this.deviceSize) {
               case "large":
-                this.image = Adapt.course.get('_logo')._graphic._large;
+                this.image = this.model.get('_graphic')._large;
                 break;
               case "medium":
-                this.image = Adapt.course.get('_logo')._graphic._medium;
+                this.image = this.model.get('_graphic')._medium;
                 break;
               default:
                 // If "small"
-                this.image = Adapt.course.get('_logo')._graphic._small;
+                this.image = this.model.get('_graphic')._small;
               }
               // Add image
               this.$('img').attr('src', this.image);
             }
             // add title if enabled
-            if (Adapt.course.get('_logo')._title._isEnabled) {
+            if (this.model.get('_title')._isEnabled) {
               // Check device size
               switch (this.deviceSize) {
               case "large":
-                this.title = Adapt.course.get('_logo')._title.large;
+                this.title = this.model.get('_title').large;
                 break;
               case "medium":
-                this.title = Adapt.course.get('_logo')._title.medium;
+                this.title = this.model.get('_title').medium;
                 break;
               default:
                 // If "small"
-                this.title = Adapt.course.get('_logo')._title.small;
+                this.title = this.model.get('_title').small;
               }
               // Add title
               this.$('.course-title').html(this.title);
             }
 
             // Add class to logo
-            this.$el.addClass(Adapt.course.get('_logo')._position);
+            this.$el.addClass(this.model.get('_position'));
 
             // Hide elements if they are empty
             if (this.image == "") {
@@ -84,7 +88,20 @@ define([
             } else {
                 this.$('.course-title').show();
             }
+        },
 
+        onClick: function(event) {
+            if (event && event.preventDefault) event.preventDefault();
+
+            var currentId = Adapt.location._currentId;
+            var parentId = Adapt.contentObjects.findWhere({ _id: currentId }).get('_parentId');
+
+            // Don't continue if the page is in the root of the course
+            if (parentId === "course") return;
+
+            if (this.model.get('_link')._parentPage) {
+              Adapt.trigger('navigation:parentButton');
+            }
         }
 
     });

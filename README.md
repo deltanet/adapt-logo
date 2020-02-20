@@ -18,7 +18,7 @@ The attributes listed below are properly formatted as JSON in [*example.json*](h
 
 ### Attributes
 
-The Logo attribute group contains values for **_isEnabled**, **_position**, **_graphic**, and **_title**.
+The Logo attribute group contains values for **_isEnabled**, **_position**, **_graphic**, **_title**, and **_link**.
 
 >**_isEnabled** (boolean):  Turns on and off the **Logo** extension. Can be set to disable **Logo** when not required.
 
@@ -44,8 +44,14 @@ The Logo attribute group contains values for **_isEnabled**, **_position**, **_g
 
 >>**small** (string): Defines the title on a small sized device.  
 
+>**_link** (object): This `_link` attributes group stores the properties for a link on the button. It contains values for **_isEnabled**, and **_parentPage**.  
+
+>>**_isEnabled** (boolean):  If set to `true`, the link button will be active.
+
+>>**_parentPage** (boolean):  If set to `true`, the link will be the parent of the current page.
+
 ----------------------------
-**Version number:**  2.1.0    
+**Version number:**  2.2.0    
 **Framework versions supported:**  2+    
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-logo/graphs/contributors)     
 **Accessibility support:** Yes  
