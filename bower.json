@@ -1,7 +1,7 @@
 {
 	"name": "adapt-logo",
-	"version": "2.2.0",
-	"framework": ">=2",
+	"version": "3.0.0",
+	"framework": ">=5",
 	"homepage": "https://github.com/deltanet/adapt-logo",
 	"issues": "https://github.com/deltanet/adapt-logo/issues",
 	"displayName": "Logo",
@@ -12,6 +12,6 @@
 		"adapt-plugin",
 		"adapt-extension"
 	],
-	"license": "GPLv3",
+	"license": "GPL-3.0",
 	"targetAttribute": "_logo"
 }

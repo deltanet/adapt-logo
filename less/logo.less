@@ -1,21 +1,22 @@
 .logo {
 
-  .logo-button {
+  &__btn {
     &.inactive {
       cursor: default;
     }
+    background-color: @nav;
+    padding: 0;
   }
 
-  .course-title {
-    padding: @navigation-padding / 2;
-    color: @tertiary-color-inverted;
+  &__title {
+    color: @nav-inverted;
 
-    font-size: @sub-title-font-size;
-    font-weight: @sub-title-font-weight;
-    line-height: @navigation-padding + @icon-size;
+    font-size: @body-size;
+    font-weight: @font-weight-bold;
+    line-height: (@icon-padding * 2) + @icon-size;
 
-    margin-left: @navigation-padding;
-    margin-right: @navigation-padding;
+    margin-left: @icon-padding;
+    margin-right: @icon-padding;
 
     float: left;
     .dir-rtl & {
@@ -23,14 +24,14 @@
     }
   }
 
-  .course-logo {
-    padding: @navigation-padding / 2;
+  &__image {
+    padding: @icon-padding / 2;
     float: left;
     .dir-rtl & {
       float: right;
     }
     img {
-      height: @navigation-padding + @icon-size;
+      height: @icon-padding + @icon-size;
     }
   }
 

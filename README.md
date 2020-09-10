@@ -51,8 +51,8 @@ The Logo attribute group contains values for **_isEnabled**, **_position**, **_g
 >>**_parentPage** (boolean):  If set to `true`, the link will be the parent of the current page.
 
 ----------------------------
-**Version number:**  2.2.0    
-**Framework versions supported:**  2+    
+**Version number:**  3.0.0    
+**Framework versions supported:**  5+    
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-logo/graphs/contributors)     
 **Accessibility support:** Yes  
 **RTL support:** Yes  
