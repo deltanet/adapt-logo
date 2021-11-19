@@ -1,52 +1,55 @@
-define([
-  'core/js/adapt',
-  './logoView'
-], function (Adapt, LogoView) {
+import Adapt from 'core/js/adapt';
+import LogoView from './logoView';
 
-  var Logo = _.extend({
+class Logo extends Backbone.Controller {
 
-    initialize: function () {
-      this.listenToOnce(Adapt, 'app:dataReady', this.onAppDataReady);
-    },
+  initialize() {
+    this.listenToOnce(Adapt, 'app:dataReady', this.onAppDataReady);
+  }
 
-    onAppDataReady: function () {
-      this.listenTo(Adapt.config, 'change:_activeLanguage', this.onLangChange);
+  onAppDataReady() {
+    this.listenTo(Adapt.config, 'change:_activeLanguage', this.onLangChange);
 
-      if (!Adapt.course.get('_logo')) return;
+    if (!Adapt.course.get('_logo')) return;
 
-      if (Adapt.course.get('_logo')._isEnabled) {
-        this.setupLogo();
-        this.setupListeners();
-      }
-    },
-
-    onLangChange: function () {
-      this.removeListeners();
-      this.listenToOnce(Adapt, 'app:dataReady', this.onAppDataReady);
-    },
-
-    setupLogo: function () {
-      this.config = Adapt.course.get('_logo');
-      this.model = new Backbone.Model(this.config);
-    },
-
-    setupListeners: function () {
-      this.listenTo(Adapt, 'navigationView:postRender', this.renderLogoView);
-    },
-
-    removeListeners: function () {
-      this.stopListening(Adapt, 'navigationView:postRender', this.renderLogoView);
-      this.stopListening(Adapt.config, 'change:_activeLanguage', this.onLangChange);
-    },
-
-    renderLogoView: function () {
-      new LogoView({model: this.model});
+    if (Adapt.course.get('_logo')._isEnabled) {
+      this.setupLogo();
+      this.setupListeners();
     }
+  }
 
-  }, Backbone.Events);
+  onLangChange() {
+    this.removeListeners();
+    this.listenToOnce(Adapt, 'app:dataReady', this.onAppDataReady);
+  }
 
-  Logo.initialize();
+  setupLogo() {
+    this.config = Adapt.course.get('_logo');
+  }
 
-  return Logo;
+  setupListeners() {
+    this.listenTo(Adapt, 'navigationView:postRender', this.renderLogoView);
+  }
 
-});
+  removeListeners() {
+    this.stopListening(Adapt, 'navigationView:postRender', this.renderLogoView);
+    this.stopListening(Adapt.config, 'change:_activeLanguage', this.onLangChange);
+  }
+
+  renderLogoView() {
+    const logoModel = new Backbone.Model(this.config);
+
+    // Check position
+    if (this.config._position == "left" || this.config._position == "right") {
+      $('.nav__inner').prepend(new LogoView({
+        model: logoModel
+      }).$el);
+    } else {
+      $('.nav__inner').append(new LogoView({
+        model: logoModel
+      }).$el);
+    }
+  }
+}
+
+export default Adapt.logo = new Logo();
